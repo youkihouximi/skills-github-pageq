@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丁慧美互动网页设计作业</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 24px;
+            font-weight: normal;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        label {
+            width: 80px;
+            text-align: right;
+            margin-right: 15px;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        select,
+        textarea {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input, .checkbox-option input {
+            margin-right: 5px;
+        }
+        
+        select {
+            width: 200px;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        
+        button {
+            padding: 8px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn {
+            background-color: #4a6fa5;
+            color: white;
+        }
+        
+        .submit-btn:hover {
+            background-color: #3a5a8a;
+        }
+        
+        .reset-btn {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .reset-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .required::after {
+            content: "*";
+            color: red;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>用户注册</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="account" class="required">账户：</label>
+                <input type="text" id="account" name="account" placeholder="您的账号" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="required">密码：</label>
+                <input type="password" id="password" name="password" placeholder="您的密码" required>
+            </div>
+            
+            <div class="form-group">
+                <label>性别：</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <label for="male">男</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">女</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>爱好：</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="singing" name="hobbies" value="singing">
+                        <label for="singing">唱歌</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="swimming" name="hobbies" value="swimming">
+                        <label for="swimming">游泳</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="movies" name="hobbies" value="movies">
+                        <label for="movies">看电影</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="chess" name="hobbies" value="chess">
+                        <label for="chess">下棋</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="hiking" name="hobbies" value="hiking">
+                        <label for="hiking">爬山</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="reading" name="hobbies" value="reading">
+                        <label for="reading">看书</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="occupation">职业：</label>
+                <select id="occupation" name="occupation">
+                    <option value="designer" selected>设计师</option>
+                    <option value="developer">开发人员</option>
+                    <option value="manager">管理人员</option>
+                    <option value="teacher">教师</option>
+                    <option value="student">学生</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="income">收入：</label>
+                <select id="income" name="income">
+                    <option value="under10000" selected>10000元以下</option>
+                    <option value="10000-20000">10000-20000元</option>
+                    <option value="20000-30000">20000-30000元</option>
+                    <option value="over30000">30000元以上</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="required">邮箱：</label>
+                <input type="email" id="email" name="email" placeholder="您的电子邮箱" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="age">年龄：</label>
+                <input type="text" id="age" name="age" placeholder="25" value="25">
+            </div>
+            
+            <div class="form-group">
+                <label for="introduction">简介：</label>
+                <textarea id="introduction" name="introduction"></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button type="submit" class="submit-btn">提交</button>
+                <button type="reset" class="reset-btn">重写</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 简单的表单验证
+            const account = document.getElementById('account').value;
+            const password = document.getElementById('password').value;
+            const email = document.getElementById('email').value;
+            
+            if (!account || !password || !email) {
+                alert('请填写所有必填字段（带*号的字段）');
+                return;
+            }
+            
+            // 收集表单数据
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (key === 'hobbies') {
+                    if (!data[key]) data[key] = [];
+                    data[key].push(value);
+                } else {
+                    data[key] = value;
+                }
+            });
+            
+            // 在实际应用中，这里会将数据发送到服务器
+            console.log('表单数据:', data);
+            alert('注册信息已提交！');
+        });
+    </script>
+</body>
+</html>
